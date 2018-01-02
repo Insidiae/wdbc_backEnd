@@ -7,6 +7,8 @@ var express = require("express"),
 //      "/" => "Hi there!"
 //      "/bye" => "Goodbye!"
 //      "/cat" => "WOOF."
+//      "*" ("Splat/Star" route, basically a catch-all route I guess) => "YOU ARE A STAR!!!"
+//      NOTE: Order of routes matters; First route that matches a given request is the ONLY route that will be accessed/run.
 
 //  *Express functions
 //      app.get(options,callback)
@@ -35,6 +37,26 @@ app.get("/bye",function(req,res) {
 app.get("/cat",function(req,res) {
     console.log("GET Request was made to /cat"); //message should appear in the terminal
     res.send("WOOF."); 
+});
+
+//  *Route Parameters
+//      Provides a "pattern" for matching the pages contained in a given route
+//      Just put ":" before a route "subfolder/page" to make it a variable
+//      Route parameters are stored in req.params
+//      Example: Subreddits/comments
+//          /r/:subredditName => matches every single subreddit
+//              req.params contains: { subredditName: <subredditName> }
+//          /r/:subredditName/comments/:id/:title => matches every single post inside a given subreddit
+//              req.params contains: { subredditName: <subredditName>, id: <id>, title: <title> }
+
+//Sample Route Parameter Code
+app.get("/meme/:anything",function(req,res){
+   res.send("Welcome to the " + req.params.anything.toLowerCase() + " meme page!");
+});
+
+//Code for Splat route
+app.get("*",function(req,res) {
+    res.send("YOU ARE A STAR!!!");
 });
 
 //Start listening

@@ -1,0 +1,23 @@
+{
+  "name": "package-json-demo",
+  "version": "1.0.0",
+  "description": "Simple package.json demo",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Insidiae/wdbc_backEnd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Insidiae/wdbc_backEnd/issues"
+  },
+  "homepage": "https://github.com/Insidiae/wdbc_backEnd#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "faker": "^4.1.0"
+  }
+}

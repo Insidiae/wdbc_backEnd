@@ -1,0 +1,10 @@
+<% include partials/header %>
+<h1>Number Guesing Game</h1>
+<% if (guess === 69) { %>
+    <p>YOU GUESSED THE SECRET NUMBER!!!</p>
+<% } else if (guess > 69) { %>
+    <p>Try a lower number!</p>
+<% } else { %>
+    <p>Try a higher number!</p>
+<% } %>
+<% include partials/footer %>

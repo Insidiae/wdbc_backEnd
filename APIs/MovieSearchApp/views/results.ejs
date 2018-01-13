@@ -1,0 +1,9 @@
+<% include partials/header %>
+
+    <h1>Results Page</h1>
+    <ul> <% movies.forEach(function(movie) { %>
+        <li><strong><%= movie.Title %></strong> - <%= movie.Year %></li>
+    <% }) %></ul>
+
+    <a href="/">Search again!</a>
+<% include partials/footer %>

@@ -1,0 +1,26 @@
+{
+  "name": "todos_api",
+  "version": "1.0.0",
+  "description": "todos api for the Advanced Web Developer Bootcamp",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Insidiae/wdbc_backEnd.git"
+  },
+  "keywords": [
+    "todos"
+  ],
+  "author": "KB Ruado",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Insidiae/wdbc_backEnd/issues"
+  },
+  "homepage": "https://github.com/Insidiae/wdbc_backEnd#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^5.0.2"
+  }
+}

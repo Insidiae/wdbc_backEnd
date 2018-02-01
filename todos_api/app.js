@@ -14,5 +14,5 @@ app.get("/", function(req, res) {
 app.use("/api/todos", todoRoutes);
 
 app.listen(process.env.PORT, process.env.IP, function() {
-    console.log("Todos API is up and running!");
+    console.log("Todos API is App-ed and running!");
 });

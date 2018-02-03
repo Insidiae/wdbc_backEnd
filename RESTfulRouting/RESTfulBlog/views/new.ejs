@@ -1,0 +1,29 @@
+<% include partials/header %>
+    <title>Create New Post</title>
+<% include partials/nav %>
+
+    <div class="ui main text container segment">
+        <div class="ui huge header">New Blog</div>
+        <form id="blogForm" class="ui form" action="/blogs" method="POST">
+            <div class="field">
+                <label>Title</label>
+                <input type="text" name="blog[title]" placeholder="Title" required>
+            </div>
+            <div class="field">
+                <label>Image</label>
+                <input type="url" name="blog[image]" placeholder="Image URL" required>
+            </div>
+            <div class="field">
+                <label>Blog Content</label>
+                <textarea name="blog[body]" required></textarea>
+            </div>
+            <div role="button" class="ui animated blue button" onclick="document.querySelector('#blogForm').submit()">
+                <div class="visible content">Submit</div>
+                <div class="hidden content">
+                <i class="right arrow icon"></i>
+            </div>
+</div>
+        </form>
+    </div>
+
+<% include partials/footer %>

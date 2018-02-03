@@ -1,0 +1,11 @@
+.ui.inverted.blue.menu, .animated.blue.button {
+    background-color: #588dfd;
+}
+
+i.icon {
+    font-size: 2em;
+}
+
+.main.container {
+    margin-top: 7em;
+}

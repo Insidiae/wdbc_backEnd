@@ -1,0 +1,27 @@
+{
+  "name": "restful-blog",
+  "version": "1.0.0",
+  "description": "RESTful Blog App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Insidiae/wdbc_backEnd.git"
+  },
+  "keywords": [
+    "REST"
+  ],
+  "author": "KB Ruado",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Insidiae/wdbc_backEnd/issues"
+  },
+  "homepage": "https://github.com/Insidiae/wdbc_backEnd#readme",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "mongoose": "^5.0.3"
+  }
+}

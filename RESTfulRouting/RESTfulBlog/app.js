@@ -1,12 +1,14 @@
 // Require dependencies
 var express = require("express"),
     app = express(),
+    methodOverride = require("method-override"),
     mongoose = require("mongoose");
 
 // App config
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({extended: true}));
+app.use(methodOverride("_method"));
 
 // Mongoose/Model Config
 mongoose.connect("mongodb://localhost/restful_blog");
@@ -58,10 +60,32 @@ app.get("/blogs/:id", function(req, res) {
     .catch(catcherFn);
 });
 
+// EDIT Route (GET /blogs/:id/edit) - Shows a form for editing a blog post with the matching id
+app.get("/blogs/:id/edit", function(req, res) {
+    Blog.findById(req.params.id)
+    .then(function(foundBlog) {
+        res.render("edit", {blog: foundBlog});
+    })
+    .catch(catcherFn);
+});
+
+// NOTE: Since HTML forms do NOT support PUT and DELETE requests, we use the method-override package to, well, override methods.
+//       method-override listens for "_method" in the query strings, then overrides the HTTP method with the value found in _method.
+
+// UPDATE Route (PUT /blogs/:id) - Modifies the blog post with matching id, based on submitted form data
+// method-override: (POST /blogs/:id?_method=PUT)
+app.put("/blogs/:id", function(req, res) {
+    Blog.findByIdAndUpdate(req.params.id, req.body.blog)
+    .then(function(updatedBlog) {
+        res.redirect("/blogs/" + req.params.id);
+    })
+    .catch(catcherFn);
+});
+
 // Error "handling" function - simply console.logs whatever error is encountered.
 function catcherFn(err) {
     console.log(err);
-};
+}
 
 // Start Listening
 app.listen(process.env.PORT, process.env.IP, function() {

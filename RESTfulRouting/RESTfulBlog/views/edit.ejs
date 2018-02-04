@@ -1,0 +1,29 @@
+<% include partials/header %>
+    <title>Edit Post</title>
+<% include partials/nav %>
+
+    <div class="ui main text container segment">
+        <div class="ui huge header">Editing Post: <%= blog.title %></div>
+        <form id="blogForm" class="ui form" action="/blogs/<%= blog._id %>?_method=PUT" method="POST">
+            <div class="field">
+                <label>Title</label>
+                <input type="text" name="blog[title]" placeholder="Title" value="<%= blog.title %>" required>
+            </div>
+            <div class="field">
+                <label>Image</label>
+                <input type="url" name="blog[image]" placeholder="Image URL" value="<%= blog.image %>" required>
+            </div>
+            <div class="field">
+                <label>Blog Content</label>
+                <textarea name="blog[body]" required><%= blog.body %></textarea>
+            </div>
+            <div role="button" class="ui animated blue button" onclick="document.querySelector('#blogForm').submit()">
+                <div class="visible content">Submit</div>
+                <div class="hidden content">
+                    <i class="right arrow icon"></i>
+                </div>
+            </div>
+        </form>
+    </div>
+
+<% include partials/footer %>

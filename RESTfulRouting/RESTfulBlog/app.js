@@ -29,12 +29,10 @@ app.get("/", function(req, res) {
 
 app.get("/blogs", function(req, res){
     Blog.find()
-    .then(function(blogs) {
-        res.render("index", {blogs: blogs});
-    })
-    .catch(function(err) {
-        console.log(err);
-    });
+        .then(function(blogs) {
+            res.render("index", {blogs: blogs});
+        })
+        .catch(catcherFn);
 });
 
 // NEW Route (GET /blogs/new) - Shows a form for creating a new blog post.
@@ -48,10 +46,22 @@ app.post("/blogs", function(req, res) {
         .then(function(newBlog) {
             res.status(201).redirect("/blogs");
         })
-        .catch(function(err) {
-            console.log(err);
-        });
+        .catch(catcherFn);
 });
+
+// SHOW Route (GET /blogs/:id) - Shows the full content of a blog
+app.get("/blogs/:id", function(req, res) {
+   Blog.findById(req.params.id)
+    .then(function(foundBlog) {
+        res.render("show", {blog: foundBlog});
+    })
+    .catch(catcherFn);
+});
+
+// Error "handling" function - simply console.logs whatever error is encountered.
+function catcherFn(err) {
+    console.log(err);
+};
 
 // Start Listening
 app.listen(process.env.PORT, process.env.IP, function() {

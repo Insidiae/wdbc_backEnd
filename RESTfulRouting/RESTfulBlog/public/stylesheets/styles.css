@@ -9,3 +9,7 @@ i.icon {
 .main.container {
     margin-top: 7em;
 }
+
+#deleteForm {
+    display: inline;
+}

@@ -9,23 +9,10 @@ mongoose.connect("mongodb://localhost/blog_demo_2");
 //      - Note that you need to specify that the data type that the list contains is of mongoose.Schema.Types.ObjectId
 //      - You also need to specify the mongoose model of the referenced data.
 
-var postSchema = new mongoose.Schema({
-   title: String,
-   content: String
-});
-var Post = mongoose.model("Post", postSchema);
+// To use the module.exports from the files in the models directory, simply require() them.
+var Post = require("./models/post");
+var User = require("./models/user");
 
-var userSchema = new mongoose.Schema({
-    name: String,
-    email: String,
-    posts: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Post"
-        }
-    ]
-});
-var User = mongoose.model("User", userSchema);
 
 // Generate some initial data for the database
 // User.create({
@@ -48,7 +35,7 @@ var User = mongoose.model("User", userSchema);
 //  You should see that only the post IDs are pushed to the user's posts list.
 
 // Post.create({
-//   title: "Bacon Ipsum",
+//   title: "Bacon Ipsum pt II",
 //   content: "Bacon ipsum dolor amet flank ground round pig..."
 // }, function(err, createdPost) {
 //     if(err) {
@@ -79,11 +66,11 @@ var User = mongoose.model("User", userSchema);
 //  populate("posts") populates the user's posts list with the actual post data
 //  exec() is required to actually exectue the commands.
 
-User.findOne({email: "johndoe@example.com"}).populate("posts").exec(function(err, foundUser) {
-    if(err) {
-        console.log(err);
-    } else {
-        console.log("All posts by " + foundUser.name);
-        console.log(foundUser.posts);
-    }
-});
+// User.findOne({email: "johndoe@example.com"}).populate("posts").exec(function(err, foundUser) {
+//     if(err) {
+//         console.log(err);
+//     } else {
+//         console.log("All posts by " + foundUser.name);
+//         console.log(foundUser.posts);
+//     }
+// });

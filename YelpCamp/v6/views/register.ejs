@@ -1,0 +1,15 @@
+<% include partials/header %>
+    <title>YelpCamp - Sign Up</title>
+<% include partials/nav %>
+
+    <div class="container">
+        <h1>Sign Up</h1>
+        <form action="/register" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Sign Up">
+        </form>
+        <p>Already have an account? Login <a href="/login">here</a>!</p>
+    </div>
+    
+<% include partials/footer %>

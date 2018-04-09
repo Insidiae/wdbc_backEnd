@@ -1,0 +1,49 @@
+.caption h4 {
+    color: #588DFD;
+}
+
+.navbar {
+    background-color: #588DFD;
+}
+
+.navbar-brand, .nav li a {
+    color: #FFF;
+}
+
+.navbar-brand:hover {
+    color: #FFF;
+}
+
+.nav li a:hover {
+    color: #588DFD;
+} 
+
+.jumbotron {
+    color: #588DFD;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.delete-form {
+    display: inline;
+}
+
+.comment__text {
+    margin-bottom: 5px;
+}
+
+#camps {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#addCamp {
+    width: 30%;
+    margin: 25px auto;
+}
